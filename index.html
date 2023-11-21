@@ -95,8 +95,10 @@
 
         <div class="col-12 col-lg-5" style="overflow-x: hidden !important;">
           <aside class="p-3">
-            <swiper-container effect="cards" :autoplay="{delay:2500}">
-              <swiper-slide v-for="node in store.stories"><div class="ratio ratio-16x9"><img :src="node.src" :alt="node.id" class="object-fit-cover rounded"></div></swiper-slide>
+            <swiper-container effect="cards" :autoplay="{delay:2500}" :zoom="true">
+              <swiper-slide v-for="node in store.stories">
+                <div class="ratio ratio-16x9 swiper-zoom-container"><img :src="node.src" :alt="node.id" class="object-fit-cover rounded"></div>
+              </swiper-slide>
             </swiper-container>
           </aside>
         </div>

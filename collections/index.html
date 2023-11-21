@@ -43,9 +43,9 @@
     <section class="container">
         <div class="row py-5 g-4" v-for="node in store.collections" :Key="node.id">
             <div class="col-12 col-lg-6">
-                <swiper-container navigation="true" space-between="15" pagination="true">
+                <swiper-container navigation="true" space-between="15" pagination="true" :zoom="true">
                     <swiper-slide v-for="pode in node.thumbnails" :key="pode.id">
-                        <div class="ratio ratio-16x9"><img :src="pode.src" :alt="pode.id" class="object-fit-cover rounded"></div>
+                        <div class="ratio ratio-16x9 swiper-zoom-container"><img :src="pode.src" :alt="pode.id" class="object-fit-cover rounded"></div>
                     </swiper-slide>
                 </swiper-container>
             </div>
