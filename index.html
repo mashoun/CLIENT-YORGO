@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yorgo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- JS -->
+  <script src="/js/vue.min.js"></script>
+</head>
+
+<body id="root">
+  <!-- NAVBAR -->
+  <header class="position-fixed z-3 w-100 p-3 shadow-sm d-flex justify-content-between align-items-center bg-glass">
+    <section class="d-flex gap-3 align-items-center">
+      <img src="/imgs/logo (2).jpg" alt="logo" width="40" class="border-neon-400 object-fit-cover rounded-circle">
+      <h5 class="komo text-neon-370 fs-4 ls-1">{{store.title}}</h5>
+    </section>
+    <nav class="d-none d-lg-flex align-items-center gap-3 text-neon-370 ls-1 komo">
+      <a href="/">Home</a>
+      <!-- <a href="">About</a> -->
+      <a href="/collections">Art Collections</a>
+      <a href="#contact" class="">Contact</a>
+    </nav>
+    <i class="bi bi-three-dots-vertical text-neon-300 fs-4 d-block d-lg-none" data-bs-toggle="dropdown"></i>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="/">Home Page</a></li>
+      <li><a class="dropdown-item" href="/collections/">Art Collections</a></li>
+      <li><a class="dropdown-item" href="#contact">Contact</a></li>
+    </ul>
+  </header>
+
+  <main style="padding-top: 15vh;" class="position-relative z-2">
+
+    <!-- HERO SECTION -->
+    <section class="container d-flex align-items-center" style="min-height: 80vh;">
+      <div class="row justify-content-between align-items-center g-4">
+
+        <div class="col-12 col-lg-6">
+          <aside class="d-flex flex-column gap-3">
+            <h1 class="komo text-neon-300" data-aos="zoom-in" data-aos-duration="500">Lorem ipsum dolor sit amet.</h1>
+            <p class="text-n-400 text-justify fs-5" data-aos="zoom-in-up" data-aos-duration="500">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Quis at, enim iure ex laboriosam doloremque facere aliquid neque
+              soluta aliquam officiis esse ducimus cumque quos qui, eius et! Eveniet cumque rem reiciendis? Dolorem
+              tempore incidunt amet perspiciatis? Voluptas non omnis quasi!</p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="" class="tag rounded-pill border-neon-200" data-aos="flip-down" data-aos-duration="1500">✓
+                steel_rod_installation</a>
+              <a href="" class="tag rounded-pill border-neon-200" data-aos="flip-down" data-aos-duration="1500">✓
+                light_installation</a>
+              <a href="" class="tag rounded-pill border-neon-200" data-aos="flip-down" data-aos-duration="1500">✓
+                martini glass</a>
+              <a href="" class="tag rounded-pill border-neon-200" data-aos="flip-down" data-aos-duration="1500">✓
+                craftsmanship</a>
+            </div>
+          </aside>
+        </div>
+
+        <div class="col-12 col-lg-5">
+          <aside class="ratio ratio-1x1 position-relative">
+            <img src="https://picsum.photos/1080" alt="demo" class="object-fit-cover rounded shadow-neon-300 animated">
+            <!-- <img src="/imgs/demo-removebg-preview.png" alt="mashoun" class="object-fit-cover">
+              <img src="/imgs/mask.svg" alt="mask" class="object-fit-cover mask top-50 start-50 translate-middle"> -->
+          </aside>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- BANNER SECTION -->
+    <section class="w-100 my-5 bg-banner d-flex justify-content-center align-items-center flex-column">
+
+      <aside class="container px-3 text-center d-flex justify-content-center align-items-center gap-4 flex-column">
+        <h1 class="komo text-neon-370" data-aos="zoom-in" data-aos-duration="500">Lorem ipsum dolor sit amet.</h1>
+        <p class="text-n-400 fs-5" data-aos="zoom-in-up" data-aos-duration="1000">Lorem ipsum dolor sit amet
+          consectetur, adipisicing elit. Quis at, enim iure ex laboriosam doloremque facere aliquid neque soluta aliquam
+          officiis esse ducimus cumque quos qui, eius et! Eveniet cumque rem reiciendis? Dolorem tempore incidunt amet
+          perspiciatis? Voluptas non omnis quasi!</p>
+        <a href="" class="tag rounded-pill border-neon-300 bg-glass w-sm-100" data-aos="flip-down"
+          data-aos-duration="1500">Get Started</a>
+      </aside>
+    </section>
+
+    <!-- COLLECTION SECTION -->
+    <section class="container my-5 py-5">
+      <div class="row justify-content-between g-4">
+
+        <div class="col-12 col-lg-5" style="overflow-x: hidden !important;">
+          <aside class="p-3">
+            <swiper-container effect="cards" :autoplay="{delay:2500}">
+              <swiper-slide v-for="node in store.stories"><div class="ratio ratio-16x9"><img :src="node.src" :alt="node.id" class="object-fit-cover rounded"></div></swiper-slide>
+            </swiper-container>
+          </aside>
+        </div>
+
+        <div class="col-12 col-lg-6 p-3">
+          <aside class="d-flex flex-column gap-3">
+            <h1 class="komo text-neon-200" data-aos="zoom-in" data-aos-duration="1000">Lorem ipsum dolor sit amet
+              consectetur adipisicing elit!</h1>
+            <p class="text-n-400 text-justify" data-aos="zoom-in-up" data-aos-duration="500">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Quis at, enim iure ex laboriosam doloremque facere aliquid neque
+              soluta aliquam officiis esse ducimus cumque quos qui, eius et! Eveniet cumque rem reiciendis? Dolorem
+              tempore incidunt amet perspiciatis? Voluptas non omnis quasi! Repudiandae sint eligendi unde nobis labore
+              saepe cupiditate doloribus!</p>
+
+            <a href="/collections/" class="tag rounded-pill border-neon-300 w-fit w-sm-100 text-center" data-aos="flip-down"
+              data-aos-duration="1500">check all collection</a>
+          </aside>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- BANNER SECTION -->
+    <!-- <section class="w-100 my-5 bg-banner-2 d-flex justify-content-center align-items-center flex-column">
+
+      <aside class="container px-3 text-center d-flex justify-content-center align-items-center gap-4 flex-column">
+        <h1 class="komo text-neon-350" data-aos="zoom-in" data-aos-duration="500">Lorem ipsum dolor sit amet.</h1>
+        <p class="text-n-400 fs-5" data-aos="zoom-in-up" data-aos-duration="1000">Lorem ipsum dolor sit amet
+          consectetur, adipisicing elit. Quis at, enim iure ex laboriosam doloremque facere aliquid neque soluta aliquam
+          officiis esse ducimus cumque quos qui, eius et! Eveniet cumque rem reiciendis? Dolorem tempore incidunt amet
+          perspiciatis? Voluptas non omnis quasi!</p>
+        <a href="" class="tag rounded-pill border-neon-300 bg-glass w-sm-100" data-aos="flip-down"
+          data-aos-duration="1500">Get Started</a>
+      </aside>
+    </section> -->
+
+    <hr class="text-light my-5 container">
+    
+    <!-- FAQ Question -->
+    <section class="container">
+      <div class="row g-4 justify-content-center">
+        <div class="col-12">
+          <h1 class="komo text-neon-350 text-center">FAQ ?</h1>
+        </div>
+        <div class="col-12 col-lg-8">
+          <aside>
+            <div class="rounded py-2 border-neon-200 bg-glass px-3">
+              <div class="text-n-370  d-flex gap-3 align-items-center justify-content-between">
+                <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab, rem.</span>
+                <i type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" class="bi bi-chevron-expand fs-4 text-n-370"></i>
+              </div>
+              <p id="faq-1" class="collapse text-n-400 border-top border-light mt-2 py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum possimus mollitia quis molestias quos. Consectetur.</p>
+
+            </div>
+          </aside>
+        </div>
+        
+        <div class="col-12 col-lg-8">
+          <aside>
+            <div class="rounded py-2 border-neon-200 bg-glass px-3">
+              <div class="text-n-370  d-flex gap-3 align-items-center justify-content-between">
+                <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab, rem.</span>
+                <i type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" class="bi bi-chevron-expand fs-4 text-n-370"></i>
+              </div>
+              <p id="faq-2" class="collapse text-n-400 border-top border-light mt-2 py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum possimus mollitia quis molestias quos. Consectetur.</p>
+
+            </div>
+          </aside>
+        </div>
+        
+        <div class="col-12 col-lg-8">
+          <aside>
+            <div class="rounded py-2 border-neon-200 bg-glass px-3">
+              <div class="text-n-370  d-flex gap-3 align-items-center justify-content-between">
+                <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab, rem.</span>
+                <i type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" class="bi bi-chevron-expand fs-4 text-n-370"></i>
+              </div>
+              <p id="faq-3" class="collapse text-n-400 border-top border-light mt-2 py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum possimus mollitia quis molestias quos. Consectetur.</p>
+
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    
+    <hr class="text-light my-5 container">
+    
+    <!-- banner SECTION -->
+    <section class="container my-5 py-5">
+      <div class="row justify-content-between g-4">
+
+        <div class="col-12 col-lg-5" style="overflow-x: hidden !important;">
+          <aside class="ratio ratio-16x9"><img src="https://picsum.photos/1080" alt="banner2" class="object-fit-cover rounded"></aside>
+        </div>
+
+        <div class="col-12 col-lg-6 p-3">
+          <aside class="d-flex flex-column gap-3">
+            <h1 class="komo text-neon-200" data-aos="zoom-in" data-aos-duration="1000">Lorem ipsum dolor sit amet
+              consectetur adipisicing elit!</h1>
+            <p class="text-n-400 text-justify" data-aos="zoom-in-up" data-aos-duration="500">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Quis at, enim iure ex laboriosam doloremque facere aliquid neque
+              soluta aliquam officiis esse ducimus cumque quos qui, eius et! Eveniet cumque rem reiciendis? Dolorem
+              tempore incidunt amet perspiciatis? Voluptas non omnis quasi! Repudiandae sint eligendi unde nobis labore
+              saepe cupiditate doloribus!</p>
+
+            <a href="" class="tag rounded-pill border-neon-300 w-fit text-center w-sm-100" data-aos="flip-down"
+              data-aos-duration="1500">Learn more</a>
+          </aside>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <hr class="text-light my-5 container">
+
+    <!-- CONTACT SECTION -->
+    <section class="container py-5">
+      <div class="row g-4 justify-content-between">
+
+        <div class="col-12 col-lg-6">
+          <aside class="d-flex flex-column gap-3">
+            <h4 class="komo text-neon-300 mb-3">Any Questions?</h4>
+            <input data-aos="zoom-in-up" data-aos-duration="500" type="text" class="neon-form border-neon-300 bg-glass"
+              placeholder="Enter name">
+            <input data-aos="zoom-in-up" data-aos-duration="1000" type="text" class="neon-form border-neon-300 bg-glass"
+              placeholder="Enter subject">
+            <textarea data-aos="zoom-in-up" data-aos-duration="1500" name="" id="" cols="30" rows="8"
+              class="neon-form border-neon-300 bg-glass" placeholder="Enter your message"></textarea>
+          </aside>
+        </div>
+
+        <div class="col-12 col-lg-5">
+          <aside class="d-flex flex-column gap-3">
+
+            <h4 class="komo text-neon-300 mb-3">Get in touch</h4>
+
+            <div data-aos="zoom-in-up" data-aos-duration="500"
+              class="d-flex align-items-center gap-3 border-neon-300 rounded-pill py-2 px-3 bg-glass fs-5">
+              <i class="bi bi-geo-alt text-n-370"></i>
+              <span class="text-n-400 mb-0 fs-6">Jal el Dib - Main Street- salam building
+                Greek lebanese</span>
+            </div>
+
+            <a data-aos="zoom-in-up" data-aos-duration="1000" href="mailto:info@yorghomemaroglou.com"
+              class="d-flex align-items-center gap-3 border-neon-300 rounded-pill  py-2 px-3 bg-glass fs-5">
+              <i class="bi bi-envelope text-n-370"></i>
+              <span class="text-n-400 mb-0 fs-6">info@yorghomemaroglou.com</span>
+            </a>
+            <a data-aos="zoom-in-up" data-aos-duration="1500" href=""
+              class="d-flex align-items-center gap-3 border-neon-300 rounded-pill  py-2 px-3 bg-glass fs-5">
+              <i class="bi bi-instagram text-n-370"></i>
+              <span class="text-n-400 mb-0 fs-6">@Yorgo </span>
+            </a>
+            <a data-aos="zoom-in-up" data-aos-duration="1750" href="tel:96170267544"
+              class="d-flex align-items-center gap-3 border-neon-300 rounded-pill  py-2 px-3 bg-glass fs-5">
+              <i class="bi bi-whatsapp text-n-370"></i>
+              <span class="text-n-400 mb-0 fs-6">+961 70267544 </span>
+            </a>
+            <a data-aos="zoom-in-up" data-aos-duration="2000" href="tel:9613909182"
+              class="d-flex align-items-center gap-3 border-neon-300 rounded-pill  py-2 px-3 bg-glass fs-5">
+              <i class="bi bi-telephone-outbound text-n-370"></i>
+              <span class="text-n-400 mb-0 fs-6">+961 03909182 </span>
+            </a>
+
+          </aside>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="mt-5 py-5 bg-glass position-relative z-2" id="contact">
+    <section class="container" style="overflow-x: hidden !important;">
+      <div class="row g-3 justify-content-between">
+        <div class="col-12 col-lg-6">
+          <aside class="fc-100 d-flex flex-column gap-2 pt-5">
+            <div class="sans">
+              <h5 class="fs-5 komo text-neon-200 ls-1">Yorgho Memaroglou</h5>
+              <p class="text-light opacity-50 fs-smaller mono text-fade2 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique molestias veniam suscipit quod eos, eum odio commodi delectus ullam harum!</p>
+            </div>
+            <nav class="d-flex flex-column text-light">
+
+              <a href="/" class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-warning" style="font-size: 1.2rem !important;">link</span>
+                <span class="opacity-75">Home Page</span>
+              </a>
+
+              <a href="store.profile.contact.getStartedUrl" class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-warning" style="font-size: 1.2rem !important;">link</span>
+                <span class="opacity-75">About</span>
+              </a>
+              <a href="/programs" class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-warning" style="font-size: 1.2rem !important;">link</span>
+                <span class="opacity-75">Art Collections</span>
+              </a>
+              <a href="/admission" class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-warning" style="font-size: 1.2rem !important;">link</span>
+                <span class="opacity-75">FAQ</span>
+              </a>
+              <a href="/fees" class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-warning" style="font-size: 1.2rem !important;">link</span>
+                <span class="opacity-75">Terms & Conditions</span>
+              </a>
+              
+            </nav>
+          </aside>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <aside class="fc-100 d-flex flex-column gap-2 pt-5">
+            <div class="sans">
+              <h5 class="fs-5 text-neon-200 komo ls-1">Contact us</h5>
+              <p class="mono text-secondary fs-smaller text-fade2 text-light opacity-50 my-2">Navigate the tech landscape
+                seamlessly with our curated list of useful links.</p>
+            </div>
+            <nav class="d-flex flex-column text-light gap-2">
+              
+              <span class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-warning"
+                  style="font-size: 1.2rem !important;">location_on</span>
+                <span class="opacity-75">Beirut, Verdun Center third floor</span>
+              </span>
+
+              <a href="" class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-warning" style="font-size: 1.2rem !important;">send</span>
+                <span class="opacity-75">email</span>
+              </a>
+              <span class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-warning" style="font-size: 1.2rem !important;">call</span>
+                <span class="opacity-75">00 number</span>
+              </span>
+              
+              <a href="" class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-warning" style="font-size: 1.2rem !important;">send</span>
+                <span class="opacity-75">email</span>
+              </a>
+              
+              <a href="" class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-warning" style="font-size: 1.2rem !important;">send</span>
+                <span class="opacity-75">email</span>
+              </a>
+
+            </nav>
+          </aside>
+        </div>
+      </div>
+      <hr class="container my-4 text-light">
+      <div class="row g-3 justify-content-between pb-5">
+        <div class="col-12 col-md-6 col-lg-4">
+          <h5 class="fc-100 sans text-center text-md-start  text-warning slab ls-1">Connect with us</h5>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <nav class="d-flex gap-3 justify-content-center justify-content-md-end fc-100 fs-5 text-light">
+
+            <a href="store.profile.contact.instagram"><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-envelope"></i></a>
+            <a href="'https://wa.me/'+store.profile.contact.number"><i class="bi bi-whatsapp"></i></a>
+            <a href="store.profile.contact.facebook"><i class="bi bi-facebook"></i></a>
+            <a href="store.profile.contact.address"><i class="bi bi-geo-alt-fill"></i></a>
+          </nav>
+
+        </div>
+      </div>
+      <!-- Developed by Awedis & Mahmoud Mashoun -->
+      <p class="text-center text-light opacity-75 pop fs-x-small m-0 ls-1">Developed by Devlp </p>
+    </section>
+  </footer>
+
+  
+  <div class="stars"></div>
+  <!-- JAVASCRIPT -->
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script type="module" src="/js/app.js"></script>
+  
+
+</body>
+
+</html>
